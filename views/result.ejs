@@ -1,0 +1,41 @@
+<%- include('partials/header') %>
+
+<div class="result-wrapper">
+  <img src="/images/logo.png" alt="Pointer Logo" class="logo-img" />
+
+  <% if (car) { %>
+    <div class="car-card shadow animate__animated animate__fadeIn">
+      <div class="car-header">
+        <h2>🚗 פרטי הרכב</h2>
+      </div>
+
+      <div class="car-body">
+        <div class="car-row"><span>🔢 מספר רכב:</span> <strong><%= car.mispar_rechev %></strong></div>
+        <div class="car-row"><span>🏭 יצרן:</span> <%= car.tozeret_nm %></div>
+        <div class="car-row"><span>🚘 דגם מסחרי:</span> <%= car.kinuy_mishari %></div>
+        <div class="car-row"><span>📄 סוג דגם:</span> <%= car.sug_degem %></div>
+        <div class="car-row"><span>🛠️ דגם מנוע:</span> <%= car.degem_manoa %></div>
+        <div class="car-row"><span>📅 שנת ייצור:</span> <%= car.shnat_yitzur %></div>
+        <div class="car-row"><span>🧾 בעלות:</span> <%= car.baalut %></div>
+        <div class="car-row"><span>📅 תוקף רישיון:</span> <%= car.tokef_dt %></div>
+        <div class="car-row"><span>🧪 מועד מבחן אחרון:</span> <%= car.mivchan_acharon_dt %></div>
+        <div class="car-row"><span>🎨 צבע רכב:</span> <%= car.tzeva_rechev %></div>
+        <div class="car-row"><span>⛽ סוג דלק:</span> <%= car.sug_delek_nm %></div>
+        <div class="car-row"><span>🛞 צמיג קדמי:</span> <%= car.zmig_kidmi %></div>
+        <div class="car-row"><span>🛞 צמיג אחורי:</span> <%= car.zmig_ahori %></div>
+        <div class="car-row"><span>📆 עלייה לכביש:</span> <%= car.moed_aliya_lakvish %></div>
+      </div>
+
+      <div class="car-footer">
+        <a href="/" class="btn btn-primary w-100 mt-3">🔁 בדוק רכב נוסף</a>
+      </div>
+    </div>
+  <% } else { %>
+    <div class="result-box shadow text-center">
+      <h2 class="text-danger mb-3">❌ הרכב לא נמצא במערכת</h2>
+      <a href="/" class="btn btn-outline-light mt-2">🔁 נסה שוב</a>
+    </div>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>

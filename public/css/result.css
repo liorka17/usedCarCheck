@@ -1,0 +1,82 @@
+body {
+  background: #0f1113;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+}
+
+.result-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+.logo-img {
+  width: 120px;
+  margin-bottom: 30px;
+}
+
+.car-card {
+  background: #1a1c1f;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.car-header h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.car-body {
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+  padding: 20px 0;
+}
+
+.car-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px dashed #444;
+  font-size: 16px;
+}
+
+.car-row:last-child {
+  border-bottom: none;
+}
+
+.car-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.car-footer .btn {
+  background: #e82127;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.car-footer .btn:hover {
+  background: #c4171d;
+}
+
+.result-box {
+  background: #a01616;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  color: #fff;
+}

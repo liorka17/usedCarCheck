@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+
+<div class="search-wrapper">
+  <img src="/images/logo.png" alt="Pointer Logo" class="logo-img">
+
+  <div class="search-box shadow">
+    <h1 class="mb-3">🔍 חיפוש רכב לפי מספר</h1>
+    <p class="subtitle">הזן מספר רישוי בן 7 או 8 ספרות</p>
+
+    <form action="/cars/search" method="GET">
+      <div class="input-group">
+        <input type="text" name="plateNumber" class="form-control text-center" pattern="\d{7,8}" required placeholder="לדוגמה: 12345678" />
+        <button type="submit" class="btn btn-primary">בדוק</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
