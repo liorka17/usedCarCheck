@@ -1,6 +1,6 @@
 body {
-  background: #0f1113;
-  color: #fff;
+  background: linear-gradient(to right, #eef2f3, #dbe9f4);
+  color: #333;
   font-family: 'Segoe UI', sans-serif;
   direction: rtl;
   margin: 0;
@@ -20,22 +20,23 @@ body {
 }
 
 .search-box {
-  background: #1a1c1f;
+  background: #ffffff;
   padding: 40px 30px;
   border-radius: 20px;
   width: 100%;
   max-width: 480px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
 .search-box h1 {
   font-size: 26px;
   margin-bottom: 12px;
+  color: #222;
 }
 
 .subtitle {
-  color: #aaa;
+  color: #555;
   font-size: 15px;
   margin-bottom: 25px;
 }
@@ -49,8 +50,8 @@ body {
   flex: 1;
   padding: 12px;
   border-radius: 10px;
-  border: none;
-  background: #e6e9ec;
+  border: 1px solid #ccc;
+  background: #f9fafc;
   color: #111;
   font-size: 16px;
 }
@@ -67,4 +68,20 @@ body {
 
 .input-group .btn:hover {
   background: #c4171d;
+}
+
+.btn-crm {
+  display: inline-block;
+  background: #007bff;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 25px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-crm:hover {
+  background: #0056b3;
 }

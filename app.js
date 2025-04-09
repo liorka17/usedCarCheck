@@ -1,16 +1,18 @@
-const express = require('express');
-const path = require('path');
-const carRoutes = require('./routes/carRoutes');
-require('dotenv').config();
-const app = express();
+const express = require('express'); // מייבא את ספריית express – לבניית שרתים
+const path = require('path'); // מייבא את path – לעבודה עם נתיבים
+const carRoutes = require('./routes/carRoutes'); // מייבא את הראוטר שמטפל בנתיבים הקשורים לרכבים
+require('dotenv').config(); // טוען את משתני הסביבה מקובץ .env
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+const app = express(); // יוצר מופע של אפליקציית express
 
-app.use('/cars', carRoutes);
-app.use('/', carRoutes);
+app.set('view engine', 'ejs'); // מגדיר את מנוע התבניות ל-EJS
+app.set('views', path.join(__dirname, 'views')); // מגדיר את התיקייה שבה יושבים קבצי ה־views
 
-module.exports = app;
+app.use(express.static(path.join(__dirname, 'public'))); // משרת קבצים סטטיים (כמו CSS, JS, תמונות) מתיקיית public
+app.use(express.urlencoded({ extended: false })); // מאפשר לקרוא נתוני טופס שנשלחים ב-POST (urlencoded)
+app.use(express.json()); // מאפשר לקרוא נתונים בפורמט JSON מבקשות
+
+app.use('/cars', carRoutes); // כל הנתיבים שמתחילים ב-/cars עוברים ל־carRoutes
+app.use('/', carRoutes); // גם הנתיבים הרגילים (כמו '/') עוברים לאותו ראוטר
+
+module.exports = app; // מייצא את האפליקציה – לשימוש בקובץ server.js

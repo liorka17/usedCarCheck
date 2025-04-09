@@ -1,6 +1,7 @@
 <%- include('partials/header') %>
 
 <div class="result-wrapper">
+  
   <img src="/images/logo.png" alt="Pointer Logo" class="logo-img" />
 
   <% if (car) { %>
@@ -30,10 +31,30 @@
         <a href="/" class="btn btn-primary w-100 mt-3">🔁 בדוק רכב נוסף</a>
       </div>
     </div>
+
+    <div class="external-links mt-4">
+      <a
+        href="https://stsn.pointer4u.co.il/adfs/ls/?wa=wsignin1.0&wtrealm=https%3a%2f%2fcrm.pointer4u.co.il%2f..."
+        class="btn-crm"
+        target="_blank"
+      >CRM</a>
+    </div>
+
   <% } else { %>
-    <div class="result-box shadow text-center">
-      <h2 class="text-danger mb-3">❌ הרכב לא נמצא במערכת</h2>
-      <a href="/" class="btn btn-outline-light mt-2">🔁 נסה שוב</a>
+    <div class="error-wrapper">
+      <div class="error-card animate">
+        <div class="error-icon">❌</div>
+        <h2>הרכב לא נמצא במערכת</h2>
+        <a href="/" class="btn btn-retry">🔁 נסה שוב</a>
+      </div>
+
+      <div class="external-links mt-4">
+        <a
+          href="https://stsn.pointer4u.co.il/adfs/ls/?wa=wsignin1.0&wtrealm=https%3a%2f%2fcrm.pointer4u.co.il%2f..."
+          class="btn-crm"
+          target="_blank"
+        >CRM</a>
+      </div>
     </div>
   <% } %>
 </div>
