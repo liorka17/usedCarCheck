@@ -18,31 +18,40 @@ const redirectToPlateRoute = (req, res) => {
 
 // פעולה שמביאה רכב לפי מספר רישוי ומציגה את תוצאת החיפוש
 const getCarByPlate = async (req, res) => {
-  const plate = req.params.plateNumber; // לוקח את מספר הרישוי מהפרמטר ב-URL
+  const plate = req.params.plateNumber;
 
   try {
-    let car = await findCarByPlate(plate); // מנסה למצוא את הרכב במסד הנתונים
+    let car = await findCarByPlate(plate); // חיפוש במסד
 
     if (!car) {
-      const apiCar = await getCarFromApi(plate); // אם לא נמצא – מביא מה-API החיצוני
+      const apiCar = await getCarFromApi(plate); // ניסיון מה-API
+
       if (apiCar) {
-        await saveCarToDB(apiCar); // שומר למסד
-        car = await findCarByPlate(plate); // שולף שוב אחרי ששמרנו
+        await saveCarToDB(apiCar); // שמירה למסד
+        car = await findCarByPlate(plate); // שליפה חוזרת
+      } else {
+        // ❌ אם לא קיבלנו תוצאה – עצור והחזר דף שגיאה
+        return res.render('result', {
+          car: null,
+          cssFile: 'result.css',
+          title: 'Car Not Found'
+        });
       }
     }
 
+    // ✅ תצוגת הרכב
     res.render('result', {
-      car, // שולח את האובייקט לתצוגה
-      cssFile: 'result.css', // קובץ עיצוב לעמוד התוצאה
-      title: car ? `פרטי רכב ${car.mispar_rechev}` : 'Car Not Found' // כותרת דינאמית לפי אם נמצא או לא
+      car,
+      cssFile: 'result.css',
+      title: `פרטי רכב ${car.mispar_rechev}`
     });
 
   } catch (err) {
-    console.error('❌', err.message); // מדפיס שגיאה אם הייתה
+    console.error('❌', err.message);
     res.status(500).render('result', {
-      car: null, // אין רכב להציג
+      car: null,
       cssFile: 'result.css',
-      title: 'System Error' // כותרת שגיאה
+      title: 'System Error'
     });
   }
 };

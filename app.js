@@ -15,4 +15,5 @@ app.use(express.json()); // מאפשר לקרוא נתונים בפורמט JSON
 app.use('/cars', carRoutes); // כל הנתיבים שמתחילים ב-/cars עוברים ל־carRoutes
 app.use('/', carRoutes); // גם הנתיבים הרגילים (כמו '/') עוברים לאותו ראוטר
 
+
 module.exports = app; // מייצא את האפליקציה – לשימוש בקובץ server.js
